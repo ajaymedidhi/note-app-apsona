@@ -1,0 +1,100 @@
+/* notesStyles.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.note {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    transition: transform 0.2s;
+}
+
+.note:hover {
+    transform: translateY(-10px);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.delete-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.delete-button:hover {
+    transform: scale(1.1);
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .notes-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .note {
+        width: calc(100% - 40px);
+        max-width: none;
+    }
+}

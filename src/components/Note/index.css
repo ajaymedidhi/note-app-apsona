@@ -1,0 +1,41 @@
+.note-actions {
+    display: flex;
+    align-items: center;
+}
+
+.color-picker {
+    position: relative;
+    display: inline-block;
+}
+
+.color-picker-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.color-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+
+#delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#delete-button img {
+    width: 24px;
+    height: 24px;
+}
+
+#delete-button:hover {
+    transform: scale(1.1);
+}
+

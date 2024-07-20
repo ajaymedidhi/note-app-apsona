@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Progress from './components/Progress'
 import Deleted from './components/Deleted';
 import Archived from './components/Archived';
+import N from './components/N';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
          <Route exact path="/update" element={<Progress/>}/> 
          <Route exact path="/deleted" element={<Deleted/>}/> 
          <Route exact path="/archive" element={<Archived/>}/>
+         <Route exact path="/notes" element={<N/>}/>
        </Routes>
     </BrowserRouter>
   );

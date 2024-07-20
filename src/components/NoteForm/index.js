@@ -1,85 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import './index.css'; // Ensure CSS file is imported
+import React, { useState, useEffect } from 'react'; 
+import './index.css';
 
 const NoteForm = ({ note, onSave }) => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [tags, setTags] = useState('');
-    const [color, setColor] = useState('white');
-    const [reminder, setReminder] = useState('');
+    const [title, setTitle] = useState(note ? note.title : '');
+    const [content, setContent] = useState(note ? note.content : '');
+    const [tags, setTags] = useState(note ? note.tags : []);
+    const [tagInput, setTagInput] = useState('');
 
     useEffect(() => {
         if (note) {
             setTitle(note.title);
             setContent(note.content);
-            setTags(note.tags.join(', '));
-            setColor(note.color);
-            setReminder(note.reminder ? new Date(note.reminder).toISOString().slice(0, 16) : '');
+            setTags(note.tags);
         } else {
             setTitle('');
             setContent('');
-            setTags('');
-            setColor('white');
-            setReminder('');
+            setTags([]);
         }
     }, [note]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const noteData = {
-            title,
-            content,
-            tags: tags.split(',').map(tag => tag.trim()),
-            color,
-            reminder: reminder ? new Date(reminder).toISOString() : null
-        };
-        if (note) {
-            noteData._id = note._id;
+        onSave({ ...note, title, content, tags });
+        resetForm();
+    };
+
+    const resetForm = () => {
+        setTitle('');
+        setContent('');
+        setTags([]);
+        setTagInput('');
+    };
+
+    const handleTagInput = (e) => {
+        setTagInput(e.target.value);
+    };
+
+    const handleAddTag = () => {
+        if (tags.length < 9 && tagInput.trim() !== '') {
+            setTags([...tags, tagInput.trim()]);
+            setTagInput('');
         }
-        onSave(noteData);
+    };
+
+    const handleRemoveTag = (tagToRemove) => {
+        setTags(tags.filter(tag => tag !== tagToRemove));
     };
 
     return (
-        <form className="note-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="note-form">
             <input
                 type="text"
-                className="note-title"
-                placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                placeholder="Title"
                 required
+                className="note-input"
             />
             <textarea
-                className="note-body"
-                placeholder="Content"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
+                placeholder="Content"
                 required
-            ></textarea>
-            <div className="note-form-options">
-                <input
-                    type="text"
-                    className="note-tags"
-                    placeholder="Tags"
-                    value={tags}
-                    onChange={(e) => setTags(e.target.value)}
-                />
-                <input
-                    type="color"
-                    className="note-color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                />
-                <input
-                    type="datetime-local"
-                    className="note-reminder"
-                    value={reminder}
-                    onChange={(e) => setReminder(e.target.value)}
-                />
-                <button className="note-submit" type="submit">
-                    {note ? 'Update' : 'Add'}
-                </button>
+                className="note-textarea"
+            />
+            <div className="tags-input">
+                {tags.map((tag, index) => (
+                    <span key={index} className="tag">
+                        {tag} <button type="button" className="remove-tag" onClick={() => handleRemoveTag(tag)}>x</button>
+                    </span>
+                ))}
+                {tags.length < 9 && (
+                    <>
+                        <input
+                            type="text"
+                            value={tagInput}
+                            onChange={handleTagInput}
+                            placeholder="Add a tag"
+                            className="tag-input"
+                        />
+                        <button type="button" className="add-tag" onClick={handleAddTag}>Add</button>
+                    </>
+                )}
             </div>
+            <button type="submit" className="save-button"> {note ? 'Update' : 'Add Note'}</button>
         </form>
     );
 };

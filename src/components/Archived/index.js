@@ -47,7 +47,7 @@ const ArchivedNotes = () => {
     return (
         <>
             <Header />
-            <div className="archived-notes">
+            <div className="container">
                 {loading ? (
                     <p>Loading...</p>
                 ) : (

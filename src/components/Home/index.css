@@ -1,51 +1,115 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f3f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+.header {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Home Component Styles */
 .home {
-    padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 20px;
+}
+
+.home h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.error {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 .notes-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
 }
 
+/* Note Component Styles */
 .note {
-    position: relative;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    padding: 12px;
+    padding: 20px;
     width: 250px;
-    max-width: 100%;
-    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.note:hover {
+    transform: translateY(-3px);
+}
+
+.note h3 {
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.note p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #555;
 }
 
 .note-header {
     display: flex;
     justify-content: flex-end;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
-.star-button {
+.note-header button {
     background: none;
     border: none;
-    font-size: 20px;
     cursor: pointer;
-    color: #ffd700;
+    font-size: 1rem;
+    color: #666;
+    padding: 5px;
     transition: color 0.3s ease;
 }
 
-.starred {
-    color: #f39c12;
+.note-header button:hover {
+    color: #000;
+}
+
+.delete-button img {
+    width: 20px;
+    height: 20px;
 }
 
 .note-actions {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .note-actions button {
@@ -55,7 +119,7 @@
     border-radius: 4px;
     padding: 6px 12px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: background-color 0.3s ease;
 }
 
@@ -70,7 +134,7 @@
     border-radius: 4px;
     padding: 6px 12px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
@@ -105,4 +169,45 @@
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid #ddd;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.delete-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.delete-button:hover {
+    transform: scale(1.1);
+}
+
+.home-container {
+    display: flex; /* or use grid layout properties */
+    justify-content: space-between; /* Adjust as needed */
+}
+
+.left-panel {
+    width: 50%; /* Adjust width as needed */
+    padding: 20px;
+}
+
+.right-panel {
+    width: 50%; /* Adjust width as needed */
+    padding: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.notes-list {
+    /* Define styles for your note cards */
 }
