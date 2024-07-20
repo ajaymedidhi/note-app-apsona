@@ -1,0 +1,108 @@
+.home {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.note {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    width: 250px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.note-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.star-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffd700;
+    transition: color 0.3s ease;
+}
+
+.starred {
+    color: #f39c12;
+}
+
+.note-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.note-actions button {
+    border: none;
+    background-color: #42a5f5;
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.note-actions button:hover {
+    background-color: #1e88e5;
+}
+
+.color-picker-button {
+    border: none;
+    background-color: #42a5f5;
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.color-picker-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid #42a5f5;
+}
+
+.color-picker-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 8px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ddd;
+}

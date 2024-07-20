@@ -1,0 +1,77 @@
+.note-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    margin: 8px 0;
+    max-width: 400px; /* Set a max-width for compactness */
+}
+
+.note-title {
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    width: 80%;
+}
+
+.note-body {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    width: 80%;
+    height: 80px; /* Reduced height for compactness */
+    resize: none;
+}
+
+.note-form-options {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap; /* Allows wrapping of options if needed */
+}
+
+.note-tags,
+.note-color,
+.note-reminder {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.note-tags {
+    flex: 1;
+    max-width: 120px; /* Limit width for compactness */
+}
+
+.note-color {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.note-reminder {
+    width: 120px; /* Reduced width for compactness */
+}
+
+.note-submit {
+    background-color: #42a5f5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 8px;
+}
+
+.note-submit:hover {
+    background-color: #1e88e5;
+}
